@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+  container
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   
   <title>INDEX</title>
@@ -12,8 +12,8 @@
   <div class="container">
     <div class="row">
         <div class="my-div-style">
-            <h1>サインアップ</h1>
-            <form method="post" action="{% url 'account_signup' %}">
+            <h1>Log In</h1>
+            <form method="post" action="{% url 'account_login' %}">
                 {% csrf_token %}
 
                 {{ form.as_p }}
@@ -22,9 +22,11 @@
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
 
-                <button class="btn btn-primary" type="submit">登録</button>
+                <button class="btn btn-primary" type="submit">ログイン</button>
+                <p><a class="button secondaryAction" href="{% url 'account_reset_password' %}">パスワードを忘れましたか？</a></p>
             </form>
         </div>
+
     </div>
   </div>
 
