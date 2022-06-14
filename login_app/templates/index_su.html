@@ -10,16 +10,13 @@
 <body>
   <div class="container">
     <div class="row">
-        <div class="my-div-style">
-            <h1>パスワードリセット</h1>
-
-            {% if user.is_authenticated %}
-            {% include "account/snippets/already_logged_in.html" %}
-            {% endif %}
-
-            <p>パスワードリセット用のメールを送信しました。</p>
-        </div>
-
+      <h1>Super User</h1>
+        {% if not user.is_authenticated %}
+        <p><a href="{% url 'account_signup' %}">SignUp</a></p>
+        <p><a href="{% url 'account_login' %}">Login</a></p>
+        {% else %}
+        <p><a href="{% url 'account_logout' %}">Logout</a></p>
+        {% endif %}
     </div>
   </div>
 
